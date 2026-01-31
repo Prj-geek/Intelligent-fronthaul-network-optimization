@@ -1,0 +1,12 @@
+# Ignore raw data and generated outputs
+data/
+output/
+outputs/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Generated files
+*.csv
+*.png
