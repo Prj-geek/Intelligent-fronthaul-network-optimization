@@ -1,0 +1,4 @@
+Link,Avg_Traffic_Gbps,Required_Capacity_No_Buffer_Gbps
+Link 1,1.209,5.811
+Link 2,0.841,4.048
+Link 3,0.835,3.76
