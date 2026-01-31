@@ -8,6 +8,8 @@ Built with the tools and technologies:
 
 ![Markdown](https://img.shields.io/badge/Markdown-000000?style=flat&logo=markdown&logoColor=white) ![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat&logo=streamlit&logoColor=white) ![Python](https://img.shields.io/badge/Python-3572A5?style=flat&logo=python&logoColor=white) ![pandas](https://img.shields.io/badge/pandas-130C16?style=flat&logo=pandas&logoColor=white)
 
+🚀 **Live Demo:** [Intelligent Fronthaul Network Optimization](https://intelligent-fronthaul-network-optimization-5tsjxybv7owutqssc3c.streamlit.app/)
+
 ---
 
 ## Table of Contents
