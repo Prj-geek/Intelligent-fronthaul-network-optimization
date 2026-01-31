@@ -2,26 +2,20 @@ import os
 import numpy as np
 import pandas as pd
 
-# ============================================================
 # PATHS
-# ============================================================
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LINK_TRAFFIC_DIR = os.path.join(BASE_DIR, "output", "link_traffic")
 OUT_DIR = os.path.join(BASE_DIR, "output", "capacity")
 
 os.makedirs(OUT_DIR, exist_ok=True)
 
-# ============================================================
 # CONSTANTS (FROM PROBLEM STATEMENT)
-# ============================================================
 SLOT_TIME_SEC = 500e-6          # 500 microseconds
 BUFFER_TIME_SEC = 143e-6        # 4 symbols = 143 microseconds
 LOSS_LIMIT = 0.01               # 1% slots allowed to overflow
 MAX_ITER = 30                   # binary search iterations
 
-# ============================================================
 # BUFFER SIMULATION FUNCTION
-# ============================================================
 def loss_ratio_for_capacity(demand_gbps, capacity_gbps):
     """
     Simulate buffer behavior and return slot loss ratio
@@ -51,9 +45,7 @@ def loss_ratio_for_capacity(demand_gbps, capacity_gbps):
 
     return 0.0 if traffic_slots == 0 else loss_slots / traffic_slots
 
-# ============================================================
 # PROCESS EACH LINK
-# ============================================================
 results = []
 
 for fname in sorted(os.listdir(LINK_TRAFFIC_DIR)):
@@ -100,9 +92,7 @@ for fname in sorted(os.listdir(LINK_TRAFFIC_DIR)):
 
     print(f"Link {link_id}: {high:.3f} Gbps")
 
-# ============================================================
 # SAVE RESULTS
-# ============================================================
 out_file = os.path.join(
     OUT_DIR, "required_capacity_with_buffer.csv"
 )

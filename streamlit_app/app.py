@@ -4,9 +4,7 @@ import os
 import base64
 from pathlib import Path
 
-# =====================================================
 # PAGE CONFIG
-# =====================================================
 st.set_page_config(
     page_title="Fronthaul Network Optimization",
     layout="wide",
@@ -18,24 +16,18 @@ st.set_page_config(
     }
 )
 
-# =====================================================
 # PATH SETUP
-# =====================================================
 ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 OUTPUT_DIR = os.path.join(ROOT_DIR, "output")
 
-# =====================================================
 # HELPER — encode local image to base64 for embedding
-# =====================================================
 def img_to_base64(path: str) -> str | None:
     p = Path(path)
     if p.exists():
         return base64.b64encode(p.read_bytes()).decode()
     return None
 
-# =====================================================
 # GLOBAL CSS — dark industrial telecom theme
-# =====================================================
 st.markdown("""
 <style>
 /* ── Google Fonts ── */
@@ -581,9 +573,7 @@ footer { visibility: hidden !important; }
 """, unsafe_allow_html=True)
 
 
-# =====================================================
 # HERO SECTION
-# =====================================================
 st.markdown("""
 <div class="hero-wrap">
   <div class="hero-glow-left"></div>
@@ -603,9 +593,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
-# =====================================================
 # KPI METRIC CARDS  (read from CSVs where possible)
-# =====================================================
 
 # -- try to pull real numbers from capacity CSVs --
 n_cells, n_links, max_cap, pkt_loss_pct = "—", "—", "—", "≤ 1%"
@@ -651,9 +639,7 @@ st.markdown(f"""
 """, unsafe_allow_html=True)
 
 
-# =====================================================
 # TABS
-# =====================================================
 tab1, tab2, tab3, tab4, tab5 = st.tabs([
     "⬡  Overview",
     "🔗  Topology",
@@ -663,31 +649,9 @@ tab1, tab2, tab3, tab4, tab5 = st.tabs([
 ])
 
 
-# =====================================================
 # TAB 1 — OVERVIEW
-# =====================================================
 with tab1:
 
-    # --- team intro ---
-    # ┌─────────────────────────────────────────────────────────────────┐
-    # │  HOW TO CHANGE NAMES                                            │
-    # │    Just edit the first string in each tuple below.              │
-    # │    Example: ("Rahul Mehta", "Data Engineer", "")                │
-    # │                                                                 │
-    # │  HOW TO ADD PHOTOS                                              │
-    # │    1. Place your photo files (JPG/PNG) in a folder called       │
-    # │       'assets/' in the SAME directory as this app.py            │
-    # │           project/                                               │
-    # │             ├── app.py          ← this file                     │
-    # │             └── assets/                                         │
-    # │                   ├── photo1.jpg                                │
-    # │                   ├── photo2.jpg                                │
-    # │                   ├── photo3.jpg                                │
-    # │                   └── photo4.jpg                                │
-    # │    2. Set the third string to "assets/photo1.jpg" etc.          │
-    # │    3. Photos are auto-cropped into the circular avatar.         │
-    # │    Leave the path as "" to show the letter-initial fallback.    │
-    # └─────────────────────────────────────────────────────────────────┘
     TEAM = [
         ("Rashi Goyal",  "Signal Processing & Correlation Analysis Lead",     "assets/photo1.jpeg"),   # ← ("Real Name", "Role", "assets/photo1.jpg")
         ("Priyanshu Raj",  "Capacity Estimation, Visualization & Frontend Lead",      "assets/photo2.jpeg"),   # ← ("Real Name", "Role", "assets/photo2.jpg")
@@ -785,9 +749,7 @@ with tab1:
     """, unsafe_allow_html=True)
 
 
-# =====================================================
 # TAB 2 — TOPOLOGY IDENTIFICATION
-# =====================================================
 with tab2:
 
     # --- heatmap ---
@@ -848,9 +810,7 @@ with tab2:
             st.warning("link_groupwise_table.csv not found.")
 
 
-# =====================================================
 # TAB 3 — CAPACITY ESTIMATION
-# =====================================================
 with tab3:
 
     st.markdown("""
@@ -925,9 +885,7 @@ with tab3:
     """, unsafe_allow_html=True)
 
 
-# =====================================================
 # TAB 4 — TRAFFIC VISUALIZATION
-# =====================================================
 with tab4:
 
     st.markdown("""
@@ -991,9 +949,7 @@ with tab4:
     """, unsafe_allow_html=True)
 
 
-# =====================================================
 # TAB 5 — TRAFFIC SNAPSHOT
-# =====================================================
 with tab5:
 
     st.markdown("""
@@ -1034,9 +990,7 @@ with tab5:
     """, unsafe_allow_html=True)
 
 
-# =====================================================
 # FOOTER
-# =====================================================
 st.markdown("""
 <div class="app-footer">
   <div class="logo">◈ Fronthaul Optimizer</div>

@@ -2,9 +2,7 @@ import os
 import pandas as pd
 import numpy as np
 
-# ============================================================
 # PATHS
-# ============================================================
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CLEAN_DIR = os.path.join(BASE_DIR, "output", "cleaned")
 TOPO_DIR = os.path.join(BASE_DIR, "output", "member3")
@@ -12,9 +10,7 @@ OUT_DIR = os.path.join(BASE_DIR, "output", "link_traffic")
 
 os.makedirs(OUT_DIR, exist_ok=True)
 
-# ============================================================
 # LOAD CELL → LINK MAPPING
-# ============================================================
 mapping_file = os.path.join(TOPO_DIR, "cell_to_link_mapping.csv")
 
 if not os.path.exists(mapping_file):
@@ -38,9 +34,7 @@ print("\nCell → Link mapping:")
 for link, cells in link_groups.items():
     print(f"Link {link}: Cells {cells}")
 
-# ============================================================
 # AGGREGATE PER-SLOT TRAFFIC (TIME-ALIGNED)
-# ============================================================
 for link_id, cells in link_groups.items():
 
     print(f"\nProcessing Link {link_id}...")

@@ -2,9 +2,7 @@ import os
 import pandas as pd
 import numpy as np
 
-# ============================================================
 # PATHS
-# ============================================================
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 THROUGHPUT_DIR = os.path.join(BASE_DIR, "data", "throughput")
@@ -13,15 +11,11 @@ OUTPUT_DIR = os.path.join(BASE_DIR, "output", "cleaned")
 
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-# ============================================================
 # CONSTANTS
-# ============================================================
 SYMBOLS_PER_SLOT = 14
 SLOT_DURATION_SEC = 500e-6  # 500 microseconds
 
-# ============================================================
 # THROUGHPUT PREPROCESSING (FINAL)
-# ============================================================
 def process_throughput(cell_id):
     file_path = os.path.join(
         THROUGHPUT_DIR, f"throughput-cell-{cell_id}.dat"
@@ -72,9 +66,7 @@ def process_throughput(cell_id):
 
     print(f"[OK] Throughput processed for cell {cell_id}")
 
-# ============================================================
 # PACKET STATS PREPROCESSING (UNCHANGED)
-# ============================================================
 def process_pktstats(cell_id):
     file_path = os.path.join(
         PKTSTATS_DIR, f"pkt-stats-cell-{cell_id}.dat"
@@ -119,9 +111,7 @@ def process_pktstats(cell_id):
 
     print(f"[OK] Packet-stats processed for cell {cell_id}")
 
-# ============================================================
 # MAIN
-# ============================================================
 if __name__ == "__main__":
 
     print("\nStarting preprocessing for all cells...\n")
